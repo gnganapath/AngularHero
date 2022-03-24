@@ -1,0 +1,358 @@
+<p>Switch to list view or grid view.</p>
+
+<div id="btnContainer">
+  <button [ngClass]="{ 'btn-active': displayMode === 1, btn: displayMode === 2 }" (click)="listView()"> <i class="fa fa-bars"></i> List </button>
+  <button [ngClass]="{ 'btn-active': displayMode === 2, btn: displayMode === 1 }" (click)="gridView()"> <i class="fa fa-th-large"></i> Grid  </button>
+</div>
+
+<div class="row">
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">1.Angular Introdution </span>
+      <span class="pull-right" routerLink="/angular-intro"> &#10233; </span>
+    </div>
+    <div class="content">
+      <b>What is Angular?</b>
+      <p>
+        Angular is a platform that makes it easy to build applications with the
+        web. Angular combines declarative templates, dependency injection, end
+        to end tooling, and integrated best practices to solve development
+        challenges. Angular empowers developers to build applications that live
+        on the web, mobile, or the desktop.
+      </p>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">2. Components & Modules </span>
+      <span class="pull-right" routerLink="/modules-components"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="parent">
+        <div class="front">
+          <b>Module</b>
+          <p><b>@NgModule</b></p>
+          <p>
+            Every Angular app has a root module, conventionally named AppModule,
+            which provides the bootstrap mechanism that launches the
+            application. An app typically contains many functional modules.
+          </p>
+        </div>
+        <div class="back">
+          <b>Component</b>
+          <p><b> @Component()</b></p>
+          <p>
+            Every Angular application has at least one component, the root
+            component that connects a component hierarchy with the page document
+            object model (DOM). Each component defines a class that contains
+            application data and logic, and is associated with an HTML template
+            that defines a view to be displayed in a target environment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">3. Forms & Bindings</span>
+      <span class="pull-right" routerLink="/forms-binding"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <b>Introduction to forms in Angular</b>
+          <p>
+            Handling user input with forms is the cornerstone of many common
+            applications. Applications use forms to enable users to log in, to
+            update a profile, to enter sensitive information, and to perform
+            many other data-entry tasks.
+          </p>
+          <p>
+            [Data Binding], (Event Binding), [(Two Way binding)] - Deprecated
+          </p>
+        </div>
+        <div class="mask">
+          <p>
+            <b>Reactive forms</b> are more robust: they're more scalable,
+            reusable, and testable. If forms are a key part of your application,
+            or you're already using reactive patterns for building your
+            application, use reactive forms.
+          </p>
+          <p>
+            <b>Template-driven</b> forms are useful for adding a simple form to
+            an app, such as an email list signup form. They're easy to add to an
+            app, but they don't scale as well as reactive forms. If you have
+            very basic form requirements and logic that can be managed solely in
+            the template, use template-driven forms.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">4. HttpClient, D.I- Services</span>
+      <span class="pull-right" routerLink="/httpClient-services">
+        &#10233;
+      </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p>
+            Most front-end applications communicate with backend services over
+            the HTTP protocol. Modern browsers support two different APIs for
+            making HTTP requests: the XMLHttpRequest interface and the fetch()
+            API.
+          </p>
+
+          <p>
+            The HttpClient in <b>@angular/common/http</b> offers a simplified
+            client HTTP API for Angular applications that rests on the
+            XMLHttpRequest interface exposed by browsers. Additional benefits of
+            HttpClient include testability features, typed request and response
+            objects, request and response interception, Observable apis, and
+            streamlined error handling.
+          </p>
+        </div>
+        <div class="mask">
+          @Injectable
+          <p>http.get</p>
+          <p>http.post</p>
+          <p>http.put</p>
+          <p>http.delete</p>
+          <p>
+            @Component1( Constructor2(private serviceInstance : My Service) )
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">5. Routing & Navigations</span>
+      <span class="pull-right" routerLink="/routing-navigation">
+        &#10233;
+      </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p>The browser is a familiar model of application navigation:</p>
+          <ul>
+            <li>
+              Enter a URL in the address bar and the browser navigates to a
+              corresponding page.
+            </li>
+            <li>
+              Click links on the page and the browser navigates to a new
+              page.Click the browser's back and forward buttons and the browser
+              navigates backward and forward through the history of pages you've
+              seen.
+            </li>
+          </ul>
+        </div>
+        <div class="mask">
+          <h5>Login - CanActivate</h5>
+          <div>Auth Guard</div>
+          <a class="info">routing restriction</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">6. RxJs Observables & Sharing</span>
+      <span class="pull-right" routerLink="/rxjs"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p>
+            <b>RxJS (Reactive Extensions for JavaScript)</b> is a library for
+            reactive programming using observables that makes it easier to
+            compose asynchronous or callback-based code
+          </p>
+          <p>
+            The <b>RxJS library </b> - Reactive programming is an asynchronous
+            programming paradigm concerned with data streams and the propagation
+            of change
+          </p>
+        </div>
+        <div class="mask">
+          <table>
+            <thead>
+              <tr>
+                <th align="left">Area</th>
+                <th align="left">Operators</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td align="left">Creation</td>
+                <td align="left">
+                  <code>from</code>,<code>fromEvent</code>, <code>of</code>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">Combination</td>
+                <td align="left">
+                  <code>combineLatest</code>, <code>concat</code>,
+                  <code>merge</code>, <code>startWith</code> ,
+                  <code>withLatestFrom</code>, <code>zip</code>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">Filtering</td>
+                <td align="left">
+                  <code>debounceTime</code>, <code>distinctUntilChanged</code>,
+                  <code>filter</code>, <code>take</code>, <code>takeUntil</code>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">Transformation</td>
+                <td align="left">
+                  <code>bufferTime</code>, <code>concatMap</code>,
+                  <code>map</code>, <code>mergeMap</code>, <code>scan</code>,
+                  <code>switchMap</code>
+                </td>
+              </tr>
+              <tr>
+                <td align="left">Utility</td>
+                <td align="left"><code>tap</code></td>
+              </tr>
+              <tr>
+                <td align="left">Multicasting</td>
+                <td align="left"><code>share</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">7. NPM Moduels & Upgrade</span>
+      <span class="pull-right" routerLink="/npm-module-Update"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p><b>ngx-chart</b></p>
+          <p><b>Ag-Grid</b></p>
+          <p><b>ng-bootstrap</b></p>
+          npm install d3 --save npm install @types/d3 --save-dev
+        </div>
+        <div class="mask">
+          <p><b>https://update.angular.io</b>/</p>
+          <p>
+            The Angular Update Guide provides customized update instructions,
+            based on the current and target versions that you specify. It
+            includes basic and advanced update paths, to match the complexity of
+            your applications. It also includes troubleshooting information and
+            any recommended manual changes to help you get the most out of the
+            new release.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">8. Redux & Prod Build</span>
+      <span class="pull-right" routerLink="/redux-prod-build"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p><b>What is Redux?</b></p>
+          <p>
+            Redux is a popular approach to managing state in applications. It
+            emphasises:
+          </p>
+          <ul>
+            <li>A single, immutable data store.</li>
+            <li>One-way data flow.</li>
+            <li>
+              An approach to change based on pure functions and a stream of
+              actions.
+            </li>
+          </ul>
+        </div>
+        <div class="mask">
+          <p><b>ng build --prod</b></p>
+          <ul>
+            <li>Apache</li>
+            <li>IIS</li>
+            <li><b>AOT</b> - compilation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">9. Angular Summary</span>
+      <span class="pull-right" routerLink="/angular-summary"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p>
+            <b
+              ><a href="https://angular.io/guide/cheatsheet" target="_blank"
+                >https://angular.io/guide/cheatsheet</a
+              ></b
+            >
+          </p>
+          <p>
+            <b
+              ><a href="https://angular.io/guide/styleguide" target="_blank"
+                >https://angular.io/guide/styleguide</a
+              ></b
+            >
+          </p>
+          <p>
+            <b
+              ><a href="https://angular.io/guide/glossary" target="_blank"
+                >https://angular.io/guide/glossary</a
+              ></b
+            >
+          </p>
+        </div>
+        <div class="mask">
+          <p>
+            <b
+              ><a href="https://angular.io/cli" target="_blank"
+                >Angular CLI</a
+              ></b
+            >
+          </p>
+          <p>
+            <b
+              ><a href="https://angular.io/api" target="_blank"
+                >Angular API Ref</a
+              ></b
+            >
+          </p>
+          <p>
+            <b
+              ><a
+                href="https://angular.io/guide/creating-libraries"
+                target="_blank"
+                >Angular Published Libraries</a
+              ></b
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

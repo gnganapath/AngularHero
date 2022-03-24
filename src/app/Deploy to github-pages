@@ -32,3 +32,35 @@ $ ng build --prod --base-href "https://GithubUserName.github.io/GithubRepoName/"
 $ npx angular-cli-ghpages --dir=dist/Project-name
 
 =======================================================================================
+
+
+METHOD:2
+========
+
+Step 1:
+-------
+Create your Github Repository:
+After creating the repo, commit all your changes and push your project files to the repository you have created.
+
+Step 2
+------
+Create a gh-pages branch on your local machine: (ou need to create a gh-pages branch from your master branch/ required branch)
+
+$ git branch gh-pages    
+$ git checkout gh-pages
+
+Step 3
+-------
+Build your App:
+
+$ git checkout -b gh-pages
+$ git push origin gh-pages
+$ npm install -g angular-cli-ghpages`
+$ ng build --prod --base-href https://[username].github.io/[repo]/`
+$ ngh --dir=dist/[project-name]`
+
+Step 4
+--------
+Visit the App Page:
+https://githubusername.github.io/GithubRepoName/
+

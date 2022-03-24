@@ -24,7 +24,7 @@ const routes: Routes = [
 
   {path:'testing-unit-integrate-e2e', loadChildren: () => import('./testing-unit-integrate-e2e/testing-unit-integrate-e2e.module').then (m => m.TestingUnitIntegrateE2eModule) },
 
-  {path:'security-owasp-prod', loadChildren: () => import('./security-owasp-prodbuild/security-owasp-prodbuild.module').then ( m => m.SecurityOwaspProdbuildModule) },
+  {path:'security-owasp-prod-microUI', loadChildren: () => import('./security-owasp-prodbuild/security-owasp-prodbuild.module').then ( m => m.SecurityOwaspProdbuildModule) },
 
   {path:'devtool-i18n-cheatsheet', loadChildren: () => import('./devtools-i18n/devtools-i18n.module').then( m => m.DevtoolsI18nModule) }
 

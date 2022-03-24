@@ -1,8 +1,7 @@
-<p>Switch to list view or grid view.</p>
 
-<div id="btnContainer">
-  <button [ngClass]="{ 'btn-active': displayMode === 1, btn: displayMode === 2 }" (click)="listView()"> <i class="fa fa-bars"></i> List </button>
-  <button [ngClass]="{ 'btn-active': displayMode === 2, btn: displayMode === 1 }" (click)="gridView()"> <i class="fa fa-th-large"></i> Grid  </button>
+<div class="btnContainer" title="Switch to list view or grid view">
+  <button [ngClass]="{ 'btn-active': displayMode === 1, btn: displayMode === 2 }" (click)="listView()"> <i class="fa fa-bars"></i> List View</button>
+  <button [ngClass]="{ 'btn-active': displayMode === 2, btn: displayMode === 1 }" (click)="gridView()"> <i class="fa fa-th-large"></i> Grid View </button>
 </div>
 
 <div class="row">
@@ -95,7 +94,7 @@
   <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
     <div class="title">
       <span class="pull-left">4. HttpClient, D.I- Services</span>
-      <span class="pull-right" routerLink="/httpClient-services">
+      <span class="pull-right" routerLink="/http-client-services">
         &#10233;
       </span>
     </div>
@@ -165,8 +164,8 @@
   </div>
   <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
     <div class="title">
-      <span class="pull-left">6. RxJs Observables & Sharing</span>
-      <span class="pull-right" routerLink="/rxjs"> &#10233; </span>
+      <span class="pull-left">6.NPM Libraries, Upgrade,  RxJs Observables & Sharing</span>
+      <span class="pull-right" routerLink="/npm-library-update"> &#10233; </span>
     </div>
     <div class="content">
       <div class="view scard1">
@@ -181,8 +180,6 @@
             programming paradigm concerned with data streams and the propagation
             of change
           </p>
-        </div>
-        <div class="mask">
           <table>
             <thead>
               <tr>
@@ -231,21 +228,8 @@
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
-    <div class="title">
-      <span class="pull-left">7. NPM Moduels & Upgrade</span>
-      <span class="pull-right" routerLink="/npm-module-Update"> &#10233; </span>
-    </div>
-    <div class="content">
-      <div class="view scard1">
-        <div class="frontText">
-          <p><b>ngx-chart</b></p>
+        <div class="mask">
+           <p><b>ngx-chart</b></p>
           <p><b>Ag-Grid</b></p>
           <p><b>ng-bootstrap</b></p>
           npm install d3 --save npm install @types/d3 --save-dev
@@ -264,10 +248,13 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="row">
   <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
     <div class="title">
-      <span class="pull-left">8. Redux & Prod Build</span>
-      <span class="pull-right" routerLink="/redux-prod-build"> &#10233; </span>
+      <span class="pull-left">7. Redux -NgRx</span>
+      <span class="pull-right" routerLink="/redux-ngrx"> &#10233; </span>
     </div>
     <div class="content">
       <div class="view scard1">
@@ -299,33 +286,90 @@
   </div>
   <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
     <div class="title">
-      <span class="pull-left">9. Angular Summary</span>
-      <span class="pull-right" routerLink="/angular-summary"> &#10233; </span>
+      <span class="pull-left">8. Service Work -PWA - SSR</span>
+      <span class="pull-right" routerLink="/servicework-pwa-ssr"> &#10233; </span>
+    </div>
+    
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">9. Testing - Unit-Integration-2e2</span>
+      <span class="pull-right" routerLink="/testing-unit-integrate-e2e"> &#10233; </span>
     </div>
     <div class="content">
       <div class="view scard1">
         <div class="frontText">
+          <p><b><a href="https://angular.io/guide/cheatsheet" target="_blank">https://angular.io/guide/cheatsheet</a></b> </p>         
+        </div>
+        <div class="mask">
+          <p> <b><a href="https://angular.io/cli" target="_blank" >Angular CLI</a></b> </p>
+          <p> <b><a href="https://angular.io/api" target="_blank">Angular API Ref</a></b>  </p>
+          <p> <b><a href="https://angular.io/guide/creating-libraries" target="_blank" >Angular Published Libraries</a></b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">10. Security - OWASP, Prod Build, Micro UI</span>
+      <span class="pull-right" routerLink="/security-owasp-prod-microUI"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p><b>ngx-chart</b></p>
+          <p><b>Ag-Grid</b></p>
+          <p><b>ng-bootstrap</b></p>
+          npm install d3 --save npm install @types/d3 --save-dev
+        </div>
+        <div class="mask">
+          <p><b>Micro UI /Front end</b>/</p>
           <p>
-            <b
-              ><a href="https://angular.io/guide/cheatsheet" target="_blank"
-                >https://angular.io/guide/cheatsheet</a
-              ></b
-            >
+            Creating Angular Web Components: A Micro Frontend Tutorial<br />
+            <a>https://gorillalogic.com/blog/creating-angular-web-components-a-micro-frontend-tutorial/</a>
           </p>
-          <p>
-            <b
-              ><a href="https://angular.io/guide/styleguide" target="_blank"
-                >https://angular.io/guide/styleguide</a
-              ></b
-            >
-          </p>
-          <p>
-            <b
-              ><a href="https://angular.io/guide/glossary" target="_blank"
-                >https://angular.io/guide/glossary</a
-              ></b
-            >
-          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">11. Dev Tools, i18N, Cheat Sheet, ADA - Accessability</span>
+      <span class="pull-right" routerLink="/devtool-i18n-cheatsheet"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p><b>Chrome Dev Tools </b></p>
+          <p><b>i18N - Internationalization</b></p>
+        </div>
+        <div class="mask">
+          <p><b>Cheat Sheet</b></p>
+          <ul>
+            <li>ADA</li>
+            <li>ngcc</li>
+            <li><b>AOT</b> - compilation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ grid: displayMode === 1, list: displayMode != 1 }">
+    <div class="title">
+      <span class="pull-left">12. Angular Dashboard/Summary</span>
+      <span class="pull-right" routerLink="/angular-dashboard"> &#10233; </span>
+    </div>
+    <div class="content">
+      <div class="view scard1">
+        <div class="frontText">
+          <p><b><a href="https://webpack.js.org/" target="_blank">Webpack - https://webpack.js.org/</a></b> </p>
+          <p><b><a href="https://angular.io/guide/cheatsheet" target="_blank">https://angular.io/guide/cheatsheet</a></b> </p>
+          <p><b><a href="https://angular.io/guide/cheatsheet" target="_blank">https://angular.io/guide/cheatsheet</a></b> </p>
+          <p> <b><a href="https://angular.io/guide/styleguide" target="_blank" >https://angular.io/guide/styleguide</a></b></p>
+          <p><b><a href="https://angular.io/guide/glossary" target="_blank">https://angular.io/guide/glossary</a></b> </p>
         </div>
         <div class="mask">
           <p>

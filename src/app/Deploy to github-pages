@@ -1,0 +1,34 @@
+Method:1
+==========
+Step 1
+-------
+Create your Github Repository:
+complete the angular angular app development upto prod build level
+commit all your changes and push your project files 
+
+Step 2
+-------
+Install Angular CLI gh-pages:
+$ npm i angular-cli-ghpages --save-dev       // into project/ angular project/ application
+
+Step 3
+-------
+Run Build :
+Before you can deploy an Angular App, you need to build your angular app for use in production.
+$ ng build --prod --base-href "https://GithubUserName.github.io/GithubRepoName/"
+
+Step 4:
+-------
+Deploy to gh-pages:
+After building the App, you can now deploy it to Github Pages using the angular-cli-ghpages tool.
+$ npx angular-cli-ghpages --dir=dist/Project-name
+
+NetShell:
+--------------------------------------------------------------------------------------
+
+create github repo and complete angular app development upto prod build
+$ npm i angular-cli-ghpages --save-dev 
+$ ng build --prod --base-href "https://GithubUserName.github.io/GithubRepoName/"
+$ npx angular-cli-ghpages --dir=dist/Project-name
+
+=======================================================================================

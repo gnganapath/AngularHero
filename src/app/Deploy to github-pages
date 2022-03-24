@@ -32,7 +32,9 @@ $ ng build --base-href "https://GithubUserName.github.io/GithubRepoName/"
 $ npx angular-cli-ghpages --dir=dist/Project-name
 
 =======================================================================================
-
+While Every changes:
+ng build --base-href "https://gnganapath.github.io/AngularHero/"
+npx angular-cli-ghpages --dir=dist/angular-hero
 
 METHOD:2
 ========

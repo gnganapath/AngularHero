@@ -28,7 +28,7 @@ NetShell:
 
 create github repo and complete angular app development upto prod build
 $ npm i angular-cli-ghpages --save-dev 
-$ ng build --prod --base-href "https://GithubUserName.github.io/GithubRepoName/"
+$ ng build --base-href "https://GithubUserName.github.io/GithubRepoName/"
 $ npx angular-cli-ghpages --dir=dist/Project-name
 
 =======================================================================================

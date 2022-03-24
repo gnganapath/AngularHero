@@ -1,0 +1,16 @@
+
+<strong>
+    <ol class="ngList">  
+        <li> Module - components</li>
+        <li> Forms & Bindings</li>
+        <li> Http Client - API Call, DI,  Rxjs & Operations</li>
+        <li> Routing -Navigation : Menu,Nested level </li>     
+        <li> Npm librararies & Update to latest version</li>
+        <li> Redux / NgRX</li>
+        <li> Service worker & PWA, SSR </li>
+        <li> Dev Tools, i18N, Cheat Sheet </li>
+        <li> Testing - Unit , integration, E2E </li>
+        <li> OWASP Security & Prod Build</li>
+        <li> Angular Summary </li>
+    </ol>
+</strong>

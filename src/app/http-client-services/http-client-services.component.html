@@ -1,17 +1,10 @@
-<nav> 
-    <a routerLink="/http-client-services/http"> Http API call feature</a> || 
-    <a routerLink="/http-client-services/diServices"> Services - sharing data</a>   || 
-    <a routerLink="/http-client-services/getpostputdelete"> Http , Methods - Status code</a> ||       
-    <a routerLink="/http-client-services/rxjs"> rxjs - Observable, Promise</a>      
- </nav>
+<ol> 
+  
+    <a routerLink='/http-client-services/http-client-api' routerLinkActive="active"> Http API call feature</a> || 
+    <!--<a routerLink="/http-client-services/diServices"> Services - sharing data</a>   || 
+    <a routerLink="/http-client-services/getpostputdelete"> Http , Methods - Status code, </a> ||       -->
+    <a routerLink='/http-client-services/rxjs-http' routerLinkActive="active"> rxjs - httpcleint, Observable, Promise</a>      
+<ol>
 
  <router-outlet></router-outlet>
 
- Http call without httpClient , module using rxjs / ajax 
-
- <div>
-   <h3>{{title}}</h3>
-   <ul *ngFor="let i of data">
-      <li>{{i.id}}: {{i.name}}</li>
-   </ul>
-</div>

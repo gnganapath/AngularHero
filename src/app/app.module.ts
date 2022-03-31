@@ -7,24 +7,24 @@ import { LayoutComponentModule } from './layout-component/layout-component.modul
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-import { InternationalizationModule } from './internationalization/internationalization.module';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { LocalizationService } from './internationalization/localization.service';
-import { HelloComponent } from './hello.component';
+// import { InternationalizationModule } from './internationalization/internationalization.module';
+// import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+// import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+// import { LocalizationService } from './internationalization/localization.service';
+// import { HelloComponent } from './hello.component';
 
-/**
- * The http loader factory
- * @param {HttpClient} http
- * @returns {TranslateHttpLoader}
- * @constructor
- */
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '../assets/locales/', '.json');
-}
+// /**
+//  * The http loader factory
+//  * @param {HttpClient} http
+//  * @returns {TranslateHttpLoader}
+//  * @constructor
+//  */
+// export function HttpLoaderFactory(http: HttpClient) {
+//   return new TranslateHttpLoader(http, '../assets/locales/', '.json');
+// }
 @NgModule({
   declarations: [
-    AppComponent,HelloComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -33,16 +33,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    InternationalizationModule.forRoot({ locale_id: 'en-US' }),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    // InternationalizationModule.forRoot({ locale_id: 'en-US' }),
+    // TranslateModule.forRoot({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: HttpLoaderFactory,
+    //     deps: [HttpClient]
+    //   }
+    // })
   ],
-  providers: [LocalizationService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,2227 @@
+angular-intro:
+	1.1cli:
+		<ul>
+		  <li><a hredf="https://cli.angular.io/">https://cli.angular.io/</a></li>
+		  <li><a hredf="https://angular.io/cli">https://angular.io/cli</a> e.g ng serve --host 0.0.0.0</li>
+		  <p></p>
+		  <li><a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> </li>
+		  <li><a href="http://es6-features.org/#Constants" target="_blank">ECMAScript</a> </li>
+		  <li><a href="https://es6.io/" target="_blank">https://es6.io/</a> </li>
+		  <li><a href="http://exploringjs.com/es6/" target="_blank">http://exploringjs.com/es6/</a> </li>
+		  <li><a href="https://webpack.js.org/" target="_blank">WebPack - Bundler - CLI Do the same job as bundler </a> </li>
+		</ul>
+		
+		
+	1.2 dev env:
+		import { Component, OnInit } from '@angular/core';
+		import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+		@Component({
+		  selector: 'ng-dev-environment',
+		  template: `<iframe class="embed-responsive-item" [srcdoc]="lineageHtml" allowfullscreen></iframe>`,
+		  styleUrls: ['./dev-environment.component.less']
+		})
+		export class DevEnvironmentComponent implements OnInit {
+
+		  lineageHtml: SafeHtml
+		  constructor(private sanitized: DomSanitizer) {
+			this.lineageHtml = this.sanitized.bypassSecurityTrustHtml(`
+		<b> angular cli install behind corporate proxy
+		<p>
+		---------------------------------------------------
+		</p>
+		</b>
+		<p>step: 0:</p>
+		<p>--------</p>
+		By default : once installed Node Js without comparny proxy it will set npm registry.<br>
+		If you want to set global npm regristry follow the step. <b><em> But for our case start from Step:1</em></b>
+		<p>
+		npm set registry http://registry.npmjs.org/
+
+		</p>
+		Seems it is a certificate expire issue with:
+		<p>
+		npm registry https://registry.npmjs.org/</p>
+		in stead run:
+		<p>
+		delete proxy:
+		-----------
+		npm config rm proxy
+		npm config rm https-proxy
+		</p>
+
+		<p>
+		Step 1
+
+		Open command prompt of your system (run as administrator).
+		</p>
+		<p>
+		Step 2
+
+		In command prompt, type the below-highlighted command and enter,
+
+		C:\\windows\\system32>ping proxy      
+		</p>
+		<p>>                                                                                                                    
+
+		Step 3
+
+		You will find proxy URL of your work environment very similar to the below proxy URL format in the first line,
+
+		proxy.[company name].com    or proxy.{extension}.[company name].net
+		</p>
+		<p>
+		step:4
+
+		<p><b><em>npm config set proxy http://proxy.company.com:8080</em></b></p>
+		<p><b><em>npm config set https-proxy http://proxy.company.com:8080</em></b></p>
+		<p><b><em><a href="https://kickstart.gaiacloud.jpmchase.net/docs/products/moneta-web/#node-js-installation-811x" target="_blank">
+		https://kickstart.gaiacloud.jpmchase.net/docs/products/moneta-web/#node-js-installation-811x</a></em></b></p>
+		</p>
+
+			  
+		`)
+		  }
+
+		  ngOnInit() {
+		  }
+
+		}
+		
+		
+		1.3: prerequisite:
+		<h2>What is Angular ? - Formarly know as Angular 2 / Angular JS2</h2>
+		<ul>
+		  <li><a href="https://angular.io/docs" target="_blank">https://angular.io/docs</a></li>
+		</ul>
+
+
+		  <h2>Why we need Angular ?</h2>
+		<ul>
+		  <li><a href="https://raygun.com/blog/popular-javascript-frameworks/" target="_blank">Java Script UI Frameworks </a></li>
+		  <ul>
+			<li>Angular uses TypeScript, which is a superset of JavaScript that can compile down to vanilla JS. Many find this to be one of its biggest selling points.</li>
+			<li>Pre-rendering of content on the server can allow for better SEO as well as faster browsing</li>
+			<li>The Angular project is built on years of experience, from Angular to Angular 2 and well beyond.</li>
+			<li>Angular 2 is full of useful features such as dependency injection, templates, forms, and more.</li>
+			<li>Because Angular is maintained by Google, users can feel confident that it will be around and used for a long while.</li>
+		  </ul>
+		</ul>
+
+		<h2>How to get start and Prerequisites and  skills</h2>
+		<ul>
+		  <li>Angular CLI</li>
+		  <li>HTML5 - For DOM Manipulation - skeleton of web Page</li>
+		  <li>CSS3 - Beatify the web site / portal - Designing</li>
+		  <li>Java script programming - Logical Functionality - Events</li>
+		  <li><a href="https://angular.io/guide/quickstart" target="_blank">https://angular.io/guide/quickstart</a> </li>
+		  <!--<li><a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> </li>-->
+		  <!--<li><a href="http://es6-features.org/#Constants" target="_blank">ECMAScript</a> </li>-->
+		  <!--<li><a href="https://es6.io/" target="_blank">https://es6.io/</a> </li>-->
+		  <!--<li><a href="http://exploringjs.com/es6/" target="_blank">http://exploringjs.com/es6/</a> </li>-->
+		  <!--<li><a href="https://webpack.js.org/" target="_blank">WebPack - Bundler - CLI Do the same job as bundler </a> </li>-->
+		</ul>
+
+		
+		
+2. Component- modules:
+		
+		import { Component, OnInit } from '@angular/core';
+		import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+
+		@Component({
+		  selector: 'ng-ng-module',
+		  template: `<iframe class="embed-responsive-item" [srcdoc]="lineageHtml" allowfullscreen></iframe>`,
+		  styleUrls: ['./ng-module.component.less']
+		})
+		export class NgModuleComponent implements OnInit {
+
+
+		  extHtml = `// <b>>imports</b><br>
+		  import { BrowserModule } from '@angular/platform-browser';<br>
+		  import { NgModule } from '@angular/core';<br>
+		  import { FormsModule } from '@angular/forms';<br>
+		  import { HttpClientModule } from '@angular/common/http';<br><br>
+		  
+		  import { AppComponent } from './app.component';<br>
+		  import { ItemDirective } from './item.directive';<br>
+		  
+		  
+		  // @NgModule decorator with its metadata<br>
+		  @NgModule({<br>
+			<b>declarations:</b> [<br>
+			  AppComponent,<br>
+			  ItemDirective<br>
+			],<br>
+			<b>imports: </b>[<br>
+			  BrowserModule,<br>
+			  FormsModule,<br>
+			  HttpClientModule<br>
+			],<br>
+			<b>providers: </b>[],<br>
+			<b>bootstrap: [AppComponent]</b><br>
+		  })<br>
+		  export class AppModule { }<br>`;
+
+
+		  lineageHtml: SafeHtml
+		  constructor(private sanitized: DomSanitizer) {
+			this.lineageHtml = this.sanitized.bypassSecurityTrustHtml(this.extHtml);
+		  }
+
+		  ngOnInit() {
+		  }
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		2.1 Router params
+		
+		<p>
+		  first-component works!
+		</p>
+		<ul>
+		  <li *ngFor="let hero of heros"><a [routerLink]="['/angular', hero.id]"><span>{{hero.name}}</span></a></li>
+		</ul>
+		
+		
+		
+		
+		3: redux:
+		
+		
+		redux:<br>
+		======<br>
+
+		https://medium.com/codingthesmartway-com-blog/angular-and-redux-ecd22ea53492<br><br>
+
+		https://blog.angular-university.io/angular-2-redux-ngrx-rxjs/<br><br>
+
+		https://medium.com/supercharges-mobile-product-guide/angular-redux-the-lesson-weve-learned-for-you-93bc94391958<br><br>
+
+		https://www.pluralsight.com/guides/ui-state-management-with-redux-in-angular-4<br><br>
+
+		https://blog.ng-book.com/introduction-to-redux-with-typescript-and-angular-2/<br><br>
+
+		https://www.intertech.com/Blog/ngrx-tutorial-actions-reducers-and-effects/<br><br>
+		
+		
+		
+		4. rxjs:
+		
+		
+		<div class="module-sub-menu">
+		  <ol>
+			<li><a routerLink="/rxjs">RxJs - operators</a> </li>
+			<li><a href="http://www.angulartutorial.net/2017/12/share-data-between-angular-components.html" target="_blank">Sharing Data between two components - 7 Ways</a> </li>
+		  </ol>
+		</div>
+
+		<router-outlet></router-outlet>
+
+
+		<a href="https://angular.io/guide/rx-library" target="_blank">https://angular.io/guide/rx-library</a> <br><br>
+
+
+		<a href="https://blog.angularindepth.com/dive-into-reactive-forms-cfc9adbb4467 " target="_blank">https://blog.angularindepth.com/dive-into-reactive-forms-cfc9adbb4467</a>  <br><br>
+
+
+		  <a href="https://blog.angularindepth.com/dive-into-reactive-forms-cfc9adbb4467 " target="_blank">https://www.techiediaries.com/angular-rxjs-tutorial/</a>  <br><br>
+
+
+			<a href="https://blog.angularindepth.com/dive-into-reactive-forms-cfc9adbb4467 " target="_blank">https://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/ </a> <br><br>
+
+
+			  <a href="https://blog.angularindepth.com/dive-into-reactive-forms-cfc9adbb4467 " target="_blank">https://blog.strongbrew.io/rxjs-best-practices-in-angular/ </a> <br><br>
+
+
+
+	
+
+
+	
+	
+	PPT:5 Modules & Components
+===============================
+
+ng g c header
+
+header.component.css
+--------------------
+.hero-header{
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background: linear-gradient(135deg,#0143a3,#0273d4);
+  height: 50px;
+
+}
+span{
+  display: block;
+  padding: .5rem 1rem;
+  font-weight: bold;
+  font-size:30px;
+  color:#fff;
+}
+
+
+
+header.component.html
+--------------------
+<div class="hero-header">
+  <span>Firm wide Connector - {{title}}</span>
+</div>
+
+
+app.component.html
+--------------------
+
+
+<app-header></app-header>
+
+<div class="app-router">
+  <h1>App Module - Root Module</h1>  
+</div>
+
+
+
+ng g c side-menu
+
+
+side-menu.component.ts
+----------------------
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+@Component({
+  selector: 'app-side-menu',
+  templateUrl: './side-menu.component.html',
+  styleUrls: ['./side-menu.component.css']
+})
+export class SideMenuComponent implements OnInit {
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  navigateRoute(path){
+    this.router.navigateByUrl(path);
+  }
+}
+
+
+
+
+side-menu.componet.html
+----------------------
+<div class="side-menu">
+  <nav class="navigation">
+    <ul class="mainmenu">
+
+      <li><a (click)="navigateRoute('')">1. LOB <span style="padding-left:70%;"> > </span></a>
+        <ul class="submenu">
+          <li><a (click)="navigateRoute('')">1.1.Projects</a></li>
+          <li><a (click)="navigateRoute('')">1.2.Skill sets</a></li>
+
+        </ul>
+      </li>
+      <li><a (click)="navigateRoute('')">2. Employees <span> > </span></a>
+        <ul class="submenu">
+
+          <li><a (click)="navigateRoute('')">2.1.Developer</a></li>
+          <li><a (click)="navigateRoute('')">2.2.Operation</a></li>
+        </ul>
+      </li>
+      <!--    <li><a href="">3. Clients</a></li>-->
+      <li><a (click)="navigateRoute('')">3. Clients</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+side-menu.componet.css
+----------------------
+
+.side-menu{
+  background: #f7f7f7;
+  color:#333;
+  border: none;
+  border-radius: 0;
+  height: 100%;
+  margin-top: 50px;
+  min-height: 100vh;
+  max-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  z-index: 10000;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+
+.navigation {
+  width: 250px;
+}
+
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainmenu a {
+  display: block;
+  background-color: #CCC;
+  text-decoration: none;
+  padding: 20px 10px;
+  height:20px;
+  color: #000;
+}
+
+.mainmenu a:hover {
+  background-color: #C5C5C5;
+}
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+
+
+.submenu a {
+  background-color: #999;
+}
+
+
+.submenu a:hover {
+  background-color: #666;
+}
+
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+li{
+  border-bottom: 1px solid #fff;
+}
+span{
+  padding-left:54%;
+  font-weight:bold;
+}
+
+
+app.component.html --UPDATE
+
+-----------------
+
+
+<app-header></app-header>
+
+<app-side-menu></app-side-menu>
+
+<div class="app-router">
+  <h1>App Module - Root Module</h1>
+</div>
+
+
+
+Make the Routing-placeholder:
+
+app/app.css
+------------
+.app-router{
+  padding-left:250px;
+  padding-top: 50px;
+  border: 1px solid #ccc;
+}
+
+
+app.component.html
+----------------------
+
+<app-header></app-header>
+
+<app-side-menu></app-side-menu>
+
+
+<div class="app-router">
+  <h1>App Module - Root Module of Application</h1>
+  <router-outlet></router-outlet>
+</div>
+
+<!--<app-clients></app-clients>-->
+
+
+
+
+
+add css/central.css @ assets DIR with CSS DIR
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+style.css  -> the centralized CSS 
+---------
+
+@import "assets/css/central.css";
+
+html{
+  height: 100%;
+  margin: 0;
+  backgroud:100%;
+}
+body{
+  margin:0px;
+}
+
+
+
+
+ng g c clients
+
+
+side-menu-component.html  -UPDATE
+-------------------------
+
+<div class="side-menu">
+  <nav class="navigation">
+    <ul class="mainmenu">
+
+      <li><a (click)="navigateRoute('')">1. LOB <span style="padding-left:70%;"> > </span></a>
+        <ul class="submenu">
+          <li><a (click)="navigateRoute('')">1.1.Projects</a></li>
+          <li><a (click)="navigateRoute('')">1.2.Skill sets</a></li>
+
+        </ul>
+      </li>
+      <li><a (click)="navigateRoute('')">2. Employees <span> > </span></a>
+        <ul class="submenu">
+
+          <li><a (click)="navigateRoute('')">2.1.Developer</a></li>
+          <li><a (click)="navigateRoute('')">2.2.Operation</a></li>
+        </ul>
+      </li>
+      <!-- <li><a href="">3. Clients</a></li>-->
+      <li><a (click)="navigateRoute('clients')">3. Clients</a></li>
+    </ul>
+  </nav>
+</div> 
+	  
+app-routing.module.ts  -- UPDATE
+------------------------
+
+	import { NgModule } from '@angular/core';
+	import { Routes, RouterModule } from '@angular/router';
+	import {ClientsComponent} from './clients/clients.component';
+
+	const routes: Routes = [
+	  {path:'clients', component: ClientsComponent}
+	];
+
+	@NgModule({
+	  imports: [RouterModule.forRoot(routes)],      // --> app route level routing, So it's forRoot();
+	  exports: [RouterModule]
+	})
+
+	
+	&&&& Compare the default page routing
+	
+app.component.ts
+-----------------	
+	<!--<app-clients></app-clients>-->
+
+	
+app-routing.module.ts
+------------------------
+	import {AppComponent} from './app.component';
+
+	const routes: Routes = [
+	  //{path:'', component: AppComponent},
+	  {path:'', redirectTo:"clients", pathMatch:"full"},
+	  {path:'clients', component: ClientsComponent}
+	];
+
+
+clients.component.html
+---------------------------
+
+<div><h4>clients componet! - Directly child of App Component & app module with Routing "/clients"</h4></div>
+
+
+ng g m lob --routing
+	
+ng g c lob
+
+lob.component.html
+------------------
+<div><h3>lob Module! - feature module - Landing page/ component</h3></div>
+
+
+app.routing.ts
+-------------
+{path : "lob", loadChildren:() => import ('./lob/lob.module').then( m=> m.LobModule)}
+
+lob.routing.module.ts
+---------------------------
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {LobComponent} from './lob.component';
+
+
+const routes: Routes = [
+  { path: '' , component: LobComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],     // The clear diff is it's part of feature branch. The main.ts file will do configuration
+  exports: [RouterModule]
+})
+export class LobRoutingModule { }	
+
+
+sidemenu.html
+---------------------
+
+ <li><a (click)="navigateRoute('lob')">1. LOB <span style="padding-left:70%;"> > </span></a>
+
+ng g c lob/projects
+	
+ng g c lob/skillsets
+	
+	
+
+sidemenu.html
+---------------------
+
+<div class="side-menu">
+  <nav class="navigation">
+	<ul class="mainmenu">
+
+	  <li><a (click)="navigateRoute('lob')">1. LOB <span style="padding-left:70%;"> > </span></a>
+		<ul class="submenu">
+		  <li><a (click)="navigateRoute('lob/projects')">1.1.Projects</a></li>
+		  <li><a (click)="navigateRoute('lob/skillset')">1.2.Skill sets</a></li>
+
+		</ul>
+	  </li>
+	  <li><a (click)="navigateRoute('')">2. Employees <span> > </span></a>
+		<ul class="submenu">
+
+		  <li><a (click)="navigateRoute('')">2.1.Developer</a></li>
+		  <li><a (click)="navigateRoute('')">2.2.Operation</a></li>
+		</ul>
+	  </li>
+	  <!--    <li><a href="">3. Clients</a></li>-->
+	  <li><a (click)="navigateRoute('/clients')">3. Clients</a></li>
+	</ul>
+  </nav>
+</div>	
+
+
+lob.routing.ts
+-----------------
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {LobComponent} from './lob.component';
+import {ProjectsComponent} from './projects/projects.component';
+import {SkillsetsComponent} from './skillsets/skillsets.component';
+
+
+const routes: Routes = [
+  { path: "" , component: LobComponent,
+	children: [
+	{path:"projects", component: ProjectsComponent},
+	{path: "skillset", component: SkillsetsComponent}
+  ]
+  },
+
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],     // The clear diff is it's part of feature branch. The main.ts file will do configuration
+  exports: [RouterModule]
+})
+export class LobRoutingModule { }
+
+lob.component.html
+-----------------------
+<div><h3>lob Module! - feature module - Landing page/ component</h3></div>
+
+<router-outlet></router-outlet>
+	
+lob/project.html
+------------------
+
+<div><h4>projects Component ! - child of LOB module, Lob Component ( part of LOB)</h4></div>
+
+skillsets.html
+---------------
+
+<div><h4>skillsets Component! -  child of LOB module, Lob Component ( part of  LOB Module)</h4></div>	
+
+
+Lazy Loading - Chrome Developer Tool Explanation
+
+
+
+
+ng g m employee
+
+ng g c employee
+
+
+employee.html
+-------------
+
+<div><h4>Employee - LOB -> Emloyee Component - Resuable for landing compoent, Dev and Ops component</h4></div>
+
+add the lazy loading and reusable component to employee module& component
+
+employee.module.ts
+----------------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EmployeeComponent } from './employee.component';
+import {RouterModule, Routes} from '@angular/router';
+import {ProjectsComponent} from '../lob/projects/projects.component';
+
+const routes: Routes = [
+  { path: "" , component: EmployeeComponent,
+	children: [
+	  {path:"projects", component: EmployeeComponent},
+	  {path:"skillset", component: EmployeeComponent}
+	]
+  },
+];
+
+@NgModule({
+  declarations: [EmployeeComponent],
+  imports: [
+	CommonModule,
+	RouterModule.forChild(routes),
+  ]
+})
+export class EmployeeModule { }
+
+
+side-menu.html
+-------------
+
+
+<div class="side-menu">
+  <nav class="navigation">
+    <ul class="mainmenu">
+
+      <li><a (click)="navigateRoute('lob')">1. LOB <span style="padding-left:70%;"> > </span></a>
+        <ul class="submenu">
+          <li><a (click)="navigateRoute('lob/projects')">1.1.Projects</a></li>
+          <li><a (click)="navigateRoute('lob/skillset')">1.2.Skill sets</a></li>
+
+        </ul>
+      </li>
+      <li><a (click)="navigateRoute('employee')">2. Employees <span> > </span></a>
+        <ul class="submenu">
+
+          <li><a (click)="navigateRoute('employee')">2.1.Developer</a></li>
+          <li><a (click)="navigateRoute('employee')">2.2.Operation</a></li>
+        </ul>
+      </li>
+      <!--    <li><a href="">3. Clients</a></li>-->
+      <li><a (click)="navigateRoute('/clients')">3. Clients</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+app.routing.ts
+-----------------
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import {ClientsComponent} from './clients/clients.component';
+import {AppComponent} from './app.component';
+
+const routes: Routes = [
+  //{path:'', component: AppComponent},
+
+  {path:'', redirectTo:"clients", pathMatch:"full"},
+
+  {path:'clients', component: ClientsComponent},
+
+  {path : "lob", loadChildren:() => import ('./lob/lob.module').then( m=> m.LobModule)},
+
+  {path : "employee", loadChildren:() => import ('./employee/employee.module').then( m=> m.EmployeeModule)}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+	
+PPT :7. Forms:
+==============
+employee.module.ts
+--------------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EmployeeComponent } from './employee.component';
+import {RouterModule, Routes} from '@angular/router';
+import {ProjectsComponent} from '../lob/projects/projects.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+const routes: Routes = [
+  { path: "" , component: EmployeeComponent,
+    children: [
+      {path:"projects", component: EmployeeComponent},
+      {path:"skillset", component: EmployeeComponent}
+    ]
+  },
+];
+
+@NgModule({
+  declarations: [EmployeeComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ]
+})
+export class EmployeeModule { }
+
+
+employee.component.ts
+---------------------
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css']
+})
+export class EmployeeComponent implements OnInit {
+
+  //conditional binding
+  simple :boolean = true;
+
+  // One Way binding
+  email = new FormControl('');
+  updateEmail() {
+    this.email.setValue('ganapathi.natarajan@chase.com');
+  }
+
+  //Two Way Binding
+  fullname = " Ganapathi Naratajan";
+
+
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      fullName: ['', Validators.required],
+      sid: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      resposibility:[''],
+      employementType:['',Validators.required],
+      roles:['',Validators.required],
+      devops:['',Validators.required],
+    });
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+  }
+}
+
+
+
+employee.html
+---------------
+
+<div><h4>Employee - LOB -> Emloyee Component - Resuable for landing compoent, Dev and Ops component</h4></div>
+<div>
+  <button style="float:right;" (click)="simple = true">Simple Forms</button>
+  <button style="float:right;" (click)="simple = false">Reactive Forms</button>
+</div>
+<br>
+<hr>
+<div *ngIf="simple">
+    <div class="container">
+      <div class="form-group">
+        <h4>One way Binding</h4>
+        <label>
+          Email:
+          <input type="text" [formControl]="email" class="form-control">
+        </label>
+
+        <button (click)="updateEmail()" class="btn btn-dark">Update Email</button> // Event Binding
+      </div>
+      <p>
+        Value: {{ email.value }} <<== Binding data from using interpolation //Data Binding
+      </p>
+    </div>
+
+    <hr>
+    <div >
+      <h4>Two Way Binding</h4>
+      <label>Full Name</label>
+      <input [(ngModel)]="fullname" class="form-control" /> <<==>>  {{fullname}}
+    </div>
+</div>
+<br>
+
+<div *ngIf="!simple">
+<h4>Employee  Form - Form Handling</h4>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+          <div *ngIf="f.fullName.errors.required"> Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>SID</label>
+        <input type="text" formControlName="sid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }" />
+        <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
+          <div *ngIf="f.sid.errors.required">SID is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password - hint</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Resposibility</label>
+        <textarea formControlName="resposibility" class="form-control" ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Employement Type</label>
+        <select formControlName="employementType" class="form-control" >
+          <option value="fulltime">Full time</option>
+          <option value="parttime">Partt time</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Primary Role</label>
+        <label>
+          <input type="radio" value="Male" formControlName="roles">
+          <span>Dev</span>
+        </label>
+        <label>
+          <input type="radio" value="Female" formControlName="roles">
+          <span>Ops</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Like to become fullstack - Dev & Ops</label>
+        <input type="checkbox" value="dev" formControlName="devops">
+      </div>
+        <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </form>
+</div>
+
+employee.css
+----------------
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: inline-block;
+  max-width: 40%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.form-control {
+  display: block;
+  width: 50%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+.invalid-feedback{
+  color:red;
+}
+
+
+
+
+**************************************************************************************************************************************************************************************************************************************
+LOB ; skillsets ->
+
+PPT 9: Access server over Http -> HttpClientModule
+===================================================
+ng g s lob/ApiService
+
+apiservice.ts
+------------
+
+import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+
+@Injectable()
+export class ApiServiceService {
+
+  constructor(private http: HttpClient) { }
+
+  apiService():Observable<any>
+  {
+    return this.http.get('https://api.npms.io/v2/search?q=scope:angular');
+  }
+}
+
+
+lob.moudle.ts
+---------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { LobRoutingModule } from './lob-routing.module';
+import { LobComponent } from './lob.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { SkillsetsComponent } from './skillsets/skillsets.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ApiServiceService} from './api-service.service';
+
+
+@NgModule({
+  declarations: [LobComponent, ProjectsComponent, SkillsetsComponent],
+  imports: [
+    CommonModule,
+    LobRoutingModule,
+    HttpClientModule,
+  
+  ],
+  providers: [ApiServiceService]
+
+})
+export class LobModule { }
+
+
+skillset.component.html
+--------------------
+<div><h4>skillsets Component! -  child of LOB module, Lob Component ( part of  LOB Module)</h4></div>
+
+<h5 class="title">Makeing HTTP Get. API Call</h5>
+
+<strong>Total: {{totalAngularPackages }}</strong>
+
+<div *ngFor=" let item of results">
+  {{item.package.name}}
+</div>
+
+<br>
+<br>
+<hr>
+<button (click)="callService()">Get results from Service Calls</button>
+
+<div *ngFor=" let item of serviceResult">
+  {{item.package.name}}
+</div>
+
+
+skillset.component.ts
+------------------------
+
+import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ApiServiceService} from '../../lob/api-service.service';
+
+@Component({
+  selector: 'app-skillsets',
+  templateUrl: './skillsets.component.html',
+  styleUrls: ['./skillsets.component.css']
+})
+export class SkillsetsComponent implements OnInit {
+
+
+
+
+  totalAngularPackages;
+  results;
+  serviceResult;
+  constructor(private http: HttpClient, private service: ApiServiceService) { }
+
+  ngOnInit() {
+    // Simple GET request with response type <any>
+    this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
+      this.totalAngularPackages = data.total;
+      this.results = data.results;
+    })
+  }
+
+  callService(){
+    this.service.apiService().subscribe( response =>{
+      console.log(response)
+      this.serviceResult = response.results;
+    })
+  }
+}
+
+
+
+
+*********************************************************************************************************************************************************************************************************************************
+
+12. npm modules:
+=================
+ref: https://www.ag-grid.com/angular-grid/
+
+cmd:>npm install --save ag-grid-community ag-grid-angular
+
+cmd:>npm install
+
+npm install @angular/cdk --save
+
+app.moudle.ts
+------------
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { ClientsComponent } from './clients/clients.component';
+import { AgGridModule } from 'ag-grid-angular';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SideMenuComponent,
+    ClientsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AgGridModule.withComponents([])
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+style.css:
+----------
+
+@import "assets/css/central.css";
+
+
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+.ag-theme-alpine {
+@include ag-theme-alpine();
+}
+
+html{
+  height: 100%;
+  margin: 0;
+  backgroud:100%;
+}
+body{
+  margin:0px;
+}
+
+client.html
+--------------
+
+<div><h4>clients componet! - Directly child of App Component & app module with Routing "/clients"</h4></div>
+<ag-grid-angular
+  style="width: 700px; height: 500px;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs">
+</ag-grid-angular>
+
+client.ts
+--------------
+import { Component, OnInit } from '@angular/core';
+@Component({
+  selector: 'app-clients',
+  templateUrl: './clients.component.html',
+  styleUrls: ['./clients.component.css']
+})
+export class ClientsComponent implements OnInit {
+  //@ViewChild('agGrid') agGrid: AgGridAngular;
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  columnDefs = [
+    {headerName: 'Make', field: 'make' },
+    {headerName: 'Model', field: 'model' },
+    {headerName: 'Price', field: 'price'}
+  ];
+
+  rowData = [
+    { make: 'Toyota', model: 'Celica', price: 35000 },
+    { make: 'Ford', model: 'Mondeo', price: 32000 },
+    { make: 'Porsche', model: 'Boxter', price: 72000 }
+  ];
+
+}
+
+
+
+lob/project.html
+------------------
+<div><h4>projects Component ! - child of LOB module, Lob Component ( part of LOB)</h4></div>
+<ngx-charts-pie-grid
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  (select)="onSelect($event)">
+</ngx-charts-pie-grid>
+
+
+lob/project.component.ts
+----------------------
+import { Component, OnInit } from '@angular/core';
+import { single } from './data';
+
+@Component({
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
+})
+export class ProjectsComponent implements OnInit {
+
+
+  single: any[];
+  view: any[] = [500, 400];
+
+  // options
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+
+  colorScheme = {
+    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+  };
+
+  constructor() {
+    Object.assign(this, { single });
+  }
+
+  ngOnInit(): void {
+  }
+  onSelect(event) {
+    console.log(event);
+  }5
+}
+
+
+data.ts
+----------
+export var single = [
+  {
+    "name": "Bangalore",
+    "value": 8940000
+  },
+  {
+    "name": "Hyderabad",
+    "value": 5000000
+  },
+  {
+    "name": "Mumbai",
+    "value": 7200000
+  },
+  {
+    "name": "Dallas",
+    "value": 6200000
+  },
+  {
+    "name": "New York",
+    "value": 4200000
+  },
+  {
+    "name": "Chicago",
+    "value": 8200000
+  }
+];
+
+
+
+
+PPT:5 Modules & Components
+===============================
+
+ng g c header
+
+header.component.html
+-----------------
+<div class="hero-header">
+  <span>Firm wide Connector - Angular Demo</span>
+</div>
+
+
+header.component.css
+--------------------
+.hero-header{
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background: linear-gradient(135deg,#0143a3,#0273d4);
+  height: 50px;
+
+}
+span{
+  display: block;
+  padding: .5rem 1rem;
+  font-weight: bold;
+  font-size:30px;
+  color:#fff;
+}
+
+
+ng g c side-menu
+
+
+
+side-menu.componet.ts
+----------------------
+
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+@Component({
+  selector: 'app-side-menu',
+  templateUrl: './side-menu.component.html',
+  styleUrls: ['./side-menu.component.css']
+})
+export class SideMenuComponent implements OnInit {
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  navigateRoute(path){
+    this.router.navigateByUrl(path);
+  }
+}
+
+
+side-menu.componet.html
+------------------------
+
+<div class="side-menu">
+  <nav class="navigation">
+    <ul class="mainmenu">
+
+      <li><a (click)="navigateRoute('')">1. LOB <span style="padding-left:70%;"> > </span></a>
+        <ul class="submenu">
+          <li><a (click)="navigateRoute('')">1.1.Projects</a></li>
+          <li><a (click)="navigateRoute('')">1.2.Skill sets</a></li>
+
+        </ul>
+      </li>
+      <li><a (click)="navigateRoute('')">2. Employees <span> > </span></a>
+        <ul class="submenu">
+
+          <li><a (click)="navigateRoute('')">2.1.Developer</a></li>
+          <li><a (click)="navigateRoute('')">2.2.Operation</a></li>
+        </ul>
+      </li>
+      <!--    <li><a href="">3. Clients</a></li>-->
+      <li><a (click)="navigateRoute('')">3. Clients</a></li>
+    </ul>
+  </nav>
+</div>
+
+side-menu.component.css
+----------------------
+
+
+.side-menu{
+  background: #f7f7f7;
+  color:#333;
+  border: none;
+  border-radius: 0;
+  height: 100%;
+  margin-top: 50px;
+  min-height: 100vh;
+  max-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  z-index: 10000;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+
+.navigation {
+  width: 250px;
+}
+
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainmenu a {
+  display: block;
+  background-color: #CCC;
+  text-decoration: none;
+  padding: 20px 10px;
+  height:20px;
+  color: #000;
+}
+
+.mainmenu a:hover {
+  background-color: #C5C5C5;
+}
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 200px;
+}
+
+
+
+.submenu a {
+  background-color: #999;
+}
+
+
+.submenu a:hover {
+  background-color: #666;
+}
+
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+li{
+  border-bottom: 1px solid #fff;
+}
+span{
+  padding-left:54%;
+  font-weight:bold;
+}
+
+
+
+
+app.component.css
+-----------------
+.app-router{
+  padding-left:250px;
+  padding-top: 50px;
+  border: 1px solid #ccc;
+}
+
+app.component.html
+----------------------
+<div class="app-router">
+Hello World
+  <router-outlet></router-outlet>
+</div>
+
+add css/app.css @ assets DIR
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+style.css  -> the centralized CSS 
+---------
+
+@import "assets/css/app.css";
+html{
+  height: 100%;
+  margin: 0;
+  backgroud:100%;
+}
+body{
+  margin:0px;
+}
+
+ng g c clients
+
+
+side-menu-component.html  -UPDATE
+-------------------------
+
+      <!-- <li><a href="">3. Clients</a></li>-->
+      <li><a (click)="navigateRoute('')">3. Clients</a></li>	  
+
+      <li><a (click)="navigateRoute('clients')">3. Clients</a></li>	  
+
+      
+	  
+app-routing.module.ts  -- UPDATE
+------------------------
+
+	import { NgModule } from '@angular/core';
+	import { Routes, RouterModule } from '@angular/router';
+	import {ClientsComponent} from './clients/clients.component';
+
+	const routes: Routes = [
+	  {path:'clients', component: ClientsComponent}
+	];
+
+	@NgModule({
+	  imports: [RouterModule.forRoot(routes)],       --> app route level routing, So it's forRoot();
+	  exports: [RouterModule]
+	})
+
+	
+	
+	Compare the default page routing
+	
+	app.component.ts
+	
+	<!--<app-clients></app-clients>-->
+
+	
+app-routing.module.ts
+------------------------
+	import {AppComponent} from './app.component';
+
+	const routes: Routes = [
+	  //{path:'', component: AppComponent},
+	  {path:'', redirectTo:"clients", pathMatch:"full"},
+	  {path:'clients', component: ClientsComponent}
+	];
+	
+	
+Lazy Loading:==============
+	ng g m lob –routing
+	
+	ng g c lob
+	
+	app.routing.ts
+	-------------
+	{path : "lob", loadChildren:() => import ('./lob/lob.module').then( m=> m.LobModule)}
+	
+	lob.routing.module.ts
+	---------------------------
+	import { NgModule } from '@angular/core';
+	import { Routes, RouterModule } from '@angular/router';
+	import {LobComponent} from './lob.component';
+
+
+	const routes: Routes = [
+	  { path: '' , component: LobComponent}
+	];
+
+	@NgModule({
+	  imports: [RouterModule.forChild(routes)],     // The clear diff is it's part of feature branch. The main.ts file will do configuration
+	  exports: [RouterModule]
+	})
+	export class LobRoutingModule { }
+
+	
+	
+	ng g c lob/projects
+	
+	ng g c lob/skillsets
+	
+	
+
+	sidemenu.html
+	---------------------
+	<div class="side-menu">
+	  <nav class="navigation">
+		<ul class="mainmenu">
+
+		  <li><a (click)="navigateRoute('lob')">1. LOB <span style="padding-left:70%;"> > </span></a>
+			<ul class="submenu">
+			  <li><a (click)="navigateRoute('lob/projects')">1.1.Projects</a></li>
+			  <li><a (click)="navigateRoute('lob/skillset')">1.2.Skill sets</a></li>
+
+			</ul>
+		  </li>
+		  <li><a (click)="navigateRoute('')">2. Employees <span> > </span></a>
+			<ul class="submenu">
+
+			  <li><a (click)="navigateRoute('')">2.1.Developer</a></li>
+			  <li><a (click)="navigateRoute('')">2.2.Operation</a></li>
+			</ul>
+		  </li>
+		  <!--    <li><a href="">3. Clients</a></li>-->
+		  <li><a (click)="navigateRoute('/clients')">3. Clients</a></li>
+		</ul>
+	  </nav>
+	</div>
+
+	*********************************************************************************************************************************************************************************************************************************
+PPT8. Lazy Loading 
+==================
+
+	
+	lob.routing.ts
+	-----------------
+	
+	import { NgModule } from '@angular/core';
+	import { Routes, RouterModule } from '@angular/router';
+	import {LobComponent} from './lob.component';
+	import {ProjectsComponent} from './projects/projects.component';
+	import {SkillsetsComponent} from './skillsets/skillsets.component';
+
+
+	const routes: Routes = [
+	  { path: "" , component: LobComponent,
+	    children: [
+		{path:"projects", component: ProjectsComponent},
+		{path: "skillset", component: SkillsetsComponent}
+	  ]
+	  },
+
+	];
+
+	@NgModule({
+	  imports: [RouterModule.forChild(routes)],     // The clear diff is it's part of feature branch. The main.ts file will do configuration
+	  exports: [RouterModule]
+	})
+	export class LobRoutingModule { }
+
+
+	ng g m employee
+	
+	ng g c employee
+	
+	add the lazy loading and reusable component to employee module& component
+	
+	employee.module.ts
+	----------------------
+	import { NgModule } from '@angular/core';
+	import { CommonModule } from '@angular/common';
+	import { EmployeeComponent } from './employee.component';
+	import {RouterModule, Routes} from '@angular/router';
+	import {ProjectsComponent} from '../lob/projects/projects.component';
+
+	const routes: Routes = [
+	  { path: "" , component: EmployeeComponent,
+		children: [
+		  {path:"projects", component: EmployeeComponent},
+		  {path:"skillset", component: EmployeeComponent}
+		]
+	  },
+	];
+
+	@NgModule({
+	  declarations: [EmployeeComponent],
+	  imports: [
+		CommonModule,
+		RouterModule.forChild(routes),
+	  ]
+	})
+	export class EmployeeModule { }
+
+	*********************************************************************************************************************************************************************************************************************************
+	
+PPT :7. Forms:
+==============
+
+
+
+employee.module.ts
+-------------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EmployeeComponent } from './employee.component';
+import {RouterModule, Routes} from '@angular/router';
+import {ProjectsComponent} from '../lob/projects/projects.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+const routes: Routes = [
+  { path: "" , component: EmployeeComponent,
+    children: [
+      {path:"projects", component: EmployeeComponent},
+      {path:"skillset", component: EmployeeComponent}
+    ]
+  },
+];
+
+@NgModule({
+  declarations: [EmployeeComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ]
+})
+export class EmployeeModule { }
+
+update:
+---------
+
+@NgModule({
+  declarations: [EmployeeComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
+  ]
+})
+  
+template.html
+----------------
+
+<div>
+  <button style="float:right;" (click)="simple = true">Simple Forms</button>
+  <button style="float:right;" (click)="simple = false">Reactive Forms</button>
+</div>
+<br>
+<hr>
+<div *ngIf="simple">
+    <div class="container">
+      <div class="form-group">
+        <h4>One way Binding</h4>
+        <label>
+          Email:
+          <input type="text" [formControl]="email" class="form-control">
+        </label>
+
+        <button (click)="updateEmail()" class="btn btn-dark">Update Email</button> // Event Binding
+      </div>
+      <p>
+        Value: {{ email.value }} <<== Binding data from using interpolation //Data Binding
+      </p>
+    </div>
+
+    <hr>
+    <div >
+      <h4>Two Way Binding</h4>
+      <label>Full Name</label>
+      <input [(ngModel)]="fullname" class="form-control" /> <<==>>  {{fullname}}
+    </div>
+</div>
+<br>
+
+<div *ngIf="!simple">
+<h4>Employee  Form - Form Handling</h4>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+          <div *ngIf="f.fullName.errors.required"> Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>SID</label>
+        <input type="text" formControlName="sid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }" />
+        <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
+          <div *ngIf="f.sid.errors.required">SID is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Password - hint</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Resposibility</label>
+        <textarea formControlName="resposibility" class="form-control" ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Employement Type</label>
+        <select formControlName="employementType" class="form-control" >
+          <option value="fulltime">fulltime</option>
+          <option value="parttime">parttime</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Primary Role</label>
+        <label>
+          <input type="radio" value="Male" formControlName="roles">
+          <span>Dev</span>
+        </label>
+        <label>
+          <input type="radio" value="Female" formControlName="roles">
+          <span>Ops</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Like to become fullstack - Dev & Ops</label>
+        <input type="checkbox" value="dev" formControlName="devops">
+      </div>
+        <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </form>
+</div>
+
+
+
+component.ts
+----------------
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+
+
+
+@Component({
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css']
+})
+export class EmployeeComponent implements OnInit {
+
+  //conditional binding
+  simple :boolean = true;
+
+  // One Way binding
+  email = new FormControl('');
+  updateEmail() {
+    this.email.setValue('ganapathi.natarajan@chase.com');
+  }
+
+  //Two Way Binding
+  fullname = " Ganapathi Naratajan";
+
+
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      fullName: ['', Validators.required],
+      sid: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      resposibility:[''],
+      employementType:['',Validators.required],
+      roles:['',Validators.required],
+      devops:['',Validators.required],
+    });
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+  }
+}
+
+
+**************************************************************************************************************************************************************************************************************************************
+LOB ; skillsets ->
+
+PPT 9: Access server over Http -> HttpClientModule
+===================================================
+
+ng g s lob/ApiService
+
+apiservice.ts
+------------
+
+import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+
+@Injectable()
+export class ApiServiceService {
+
+  constructor(private http: HttpClient) { }
+
+  apiService():Observable<any>
+  {
+    return this.http.get('https://api.npms.io/v2/search?q=scope:angular');
+  }
+}
+
+
+
+module.ts
+---------
+import {HttpClientModule} from '@angular/common/http';
+
+@NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+})
+
+component.ts
+-------------
+import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {ApiServiceService} from '../../lob/api-service.service';
+
+interface SearchResults {
+    total: number;
+    results: Array<object>;
+}
+
+@Component({
+  selector: 'app-root',
+  template: `
+			<h2 class="title">Hello {{name}}</h2>
+  
+			<strong>Total: {{totalAngularPackages }}</strong>
+			 
+			 <div *ngFor=" let item of results">
+			{{item.package.name}}
+			 </div>
+		  `})
+export class AppComponent implements OnInit {
+   
+   name = 'Angular ' + VERSION.full;
+
+
+  totalAngularPackages;
+   results;
+
+     constructor(private http: HttpClient, private service: ApiServiceService) { }
+
+    ngOnInit() {      
+        // Simple GET request with response type <any>
+        this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
+            this.totalAngularPackages = data.total;
+            this.results = data.results;
+        })
+    }
+	
+	  callService(){
+		this.service.apiService().subscribe( response =>{
+		  console.log(response)
+		  this.serviceResult = response.results;
+		})
+	  }
+}
+      
+	  
+	  ng g s ApiService
+	  
+	  import { Injectable } from '@angular/core';
+		import {Observable} from 'rxjs';
+		import {HttpClient} from '@angular/common/http';
+
+		@Injectable()
+		export class ApiServiceService {
+
+		  constructor(private http: HttpClient) { }
+
+		  apiService():Observable<any>
+		  {
+			return this.http.get('https://api.npms.io/v2/search?q=scope:angular');
+		  }
+		}
+
+
+*********************************************************************************************************************************************************************************************************************************
+
+12. npm modules:
+=================
+ref: https://www.ag-grid.com/angular-grid/
+
+cmd:>npm install --save ag-grid-community ag-grid-angular
+
+cmd:>npm install
+
+
+
+update:
+--------
+import { AgGridModule } from 'ag-grid-angular';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    AgGridModule.withComponents([])
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+style.css:
+----------
+
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+==================
+
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+.ag-theme-alpine {
+@include ag-theme-alpine();
+}
+
+
+
+component.ts
+-------------
+import { AgGridAngular } from 'ag-grid-angular';
+export class AppComponent {
+    title = 'app';
+
+    columnDefs = [
+        {headerName: 'Make', field: 'make' },
+        {headerName: 'Model', field: 'model' },
+        {headerName: 'Price', field: 'price'}
+    ];
+
+    rowData = [
+        { make: 'Toyota', model: 'Celica', price: 35000 },
+        { make: 'Ford', model: 'Mondeo', price: 32000 },
+        { make: 'Porsche', model: 'Boxter', price: 72000 }
+    ];
+}
+
+template.html
+--------------
+
+<ag-grid-angular
+  style="width: 700px; height: 500px;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs">
+</ag-grid-angular>
+
+
+npm uninstall node-sass 
+
+npm rebuild node-sass
+
+----------------------------------------------------------------------------------------
+ngx-chart
+
+https://stackblitz.com/edit/swimlane-pie-chart-grid?embed=1&file=app/app.component.ts
+
+npm i @swimlane/ngx-charts --save
+
+npm install @angular/cdk --save
+
+app.module.ts
+--------------------
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
+
+
+
+lob.module.ts
+---------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { LobRoutingModule } from './lob-routing.module';
+import { LobComponent } from './lob.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { SkillsetsComponent } from './skillsets/skillsets.component';
+import {HttpClientModule} from '@angular/common/http';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+
+
+@NgModule({
+  declarations: [LobComponent, ProjectsComponent, SkillsetsComponent],
+  imports: [
+    CommonModule,
+    LobRoutingModule,
+    HttpClientModule,
+    NgxChartsModule,
+  ]
+})
+export class LobModule { }
+
+
+
+
+
+
+projects.html
+--------------
+
+<p>projects works!</p>
+<ngx-charts-pie-grid
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  (select)="onSelect($event)">
+</ngx-charts-pie-grid>
+
+
+project.component.ts
+---------------------
+
+import { Component, OnInit } from '@angular/core';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { single } from './data';
+@Component({
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
+})
+export class ProjectsComponent implements OnInit {
+
+
+  single: any[];
+  view: any[] = [500, 400];
+
+  // options
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+
+  colorScheme = {
+    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+  };
+
+  constructor() {
+    Object.assign(this, { single });
+  }
+
+  ngOnInit(): void {
+  }
+  onSelect(event) {
+    console.log(event);
+  }
+}
+
+data.ts
+-----------
+
+export var single = [
+  {
+    "name": "Bangalore",
+    "value": 8940000
+  },
+  {
+    "name": "Hyderabad",
+    "value": 5000000
+  },
+  {
+    "name": "Mumbai",
+    "value": 7200000
+  },
+  {
+    "name": "Dallas",
+    "value": 6200000
+  },
+  {
+    "name": "New York",
+    "value": 4200000
+  },
+  {
+    "name": "Chicago",
+    "value": 8200000
+  }
+];
+
+
+
+
+
+
+
+
+
+
+
+

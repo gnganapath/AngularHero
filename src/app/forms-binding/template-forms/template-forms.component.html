@@ -1,0 +1,24 @@
+<h5> Template Driven Form </h5>
+
+<div class="container">
+    <div class="row">
+        <form #regForm='ngForm' (ngSubmit)="registerTemplateForm(regForm)">
+            <h5>ngModel - is tempalte driven form directive</h5>
+            <div class="form-group"> 
+                <input type="text" class="form-control" placeholder="Full Name" name="fullName" ngModel>
+            </div>
+            <div class="form-group"> 
+                <input type="password" class="form-control" placeholder="password" name="password" ngModel>
+            </div>
+            <div class="form-group"> 
+                <input type="email" class="form-control" placeholder="Email" name="email" ngModel>
+            </div>  
+             <div class="form-group"> 
+                <button type="submit" class="btn btn-default" id="register">Register</button>
+             </div>                
+                
+        </form>
+        Form Data: {{regForm.value | json }}
+    </div>
+</div>
+

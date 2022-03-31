@@ -1,18 +1,8 @@
 <nav> 
-    <a routerLink="/angular-intro/reactiveforms"> Reactive Forms</a> || 
-    <a routerLink="/angular-intro/databinding"> data / Event binding</a>   || 
-    <a routerLink="/angular-intro/twowaybinding"> Two way data binding</a> ||            
+    <a routerLink="/forms-binding/reactive-form"> Reactive Forms</a> || 
+    <a routerLink="/forms-binding/template-form"> Tempalte Driven form</a> ||  
+    <a routerLink="/forms-binding/binding-event-attr-2way"> data / Event binding ,Two way data binding</a>   ||               
 </nav>
 
 <router-outlet></router-outlet>
 
-<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
-  <h5>User Form Data</h5>
-  <label for="first-name">First Name: </label>
-  <input id="first-name" type="text" formControlName="firstName" />
-
-  <label for="last-name">Last Name: </label>
-  <input id="last-name" type="text" formControlName="lastName" />
-
-  <input type="submit" />
-</form>

@@ -1,0 +1,71 @@
+<p>reactive-forms works!</p>
+<h5>Form Control</h5>
+
+<div class="form-group">
+    <label>form control - new formcontrol()</label>
+    <input type="text" id=name [formControl]="name">
+
+    <button (click)="getFormControlValue()"> Get the  value</button>
+    <button (click)="setFormControlValue()"> Set the form value from component</button>
+    <button (click)="resetFormControlValue()"> Resett</button>
+    Form Control Value: {{ name.value }}
+</div>
+<br />
+
+<nav>
+    <button type="button" (click)="formArraySection ? formArraySection = false : formArraySection = true;"> Form Array- </button>
+    <button type="button" (click)="formBuilderSection ? formBuilderSection = false : formBuilderSection = true;"> Form Builder -group </button>
+</nav>
+
+
+<div *ngIf="formBuilderSection">
+    <h6>Form Group based - Reactive form</h6>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmitFormBuilder()">
+        <label for="first-name">First Name: * </label>
+    <input id="first-name" type="text" formControlName="firstName" required>
+
+    <label for="last-name">Last Name: *</label>
+    <input id="last-name" type="text" formControlName="lastName">
+
+    <div formGroupName="address">
+            <h2>Address</h2>
+
+            <label for="street">Street: </label>
+            <input id="street" type="text" formControlName="street">
+
+            <label for="city">City: </label>
+            <input id="city" type="text" formControlName="city">
+
+            <label for="state">State: </label>
+            <input id="state" type="text" formControlName="state">
+
+            <label for="zip">Zip Code: </label>
+            <input id="zip"type="text" formControlName="zip">
+        </div>
+
+        <div> 
+            <p>complete the to enable button </p>
+            <button type="submit" [disabled]="!employeeForm.valid">Enter Employee Record </button> 
+        </div>
+    </form>
+    <button (click)="updatePartially()"> Update the Form with nested value level </button>
+    <button (click)="updateDirectNestedLevel()"> Update the Form in nested value </button>
+</div>
+
+
+<!--<div *ngIf="formArraySection">
+   <h6> Form Array - Reactive Forms</h6>
+   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+     <div formArrayName="aliases">
+        <h2>Aliases</h2>
+        <button type="button" (click)="addAlias()">+ Add another alias</button>
+
+        <div *ngFor="let alias of aliases.controls; let i=index">
+        <!-- The repeated alias template -->
+        <!--<label for="alias-{{ i }}">Alias:</label>
+        <input id="alias-{{ i }}" type="text" [formControlName]="i">
+        </div>
+      </div>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+</div>-->

@@ -10,6 +10,7 @@ import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { MatUiComponent } from './mat-ui/mat-ui.component';
 import { ChartcomboComponent } from './chartcombo/chartcombo.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,13 @@ import { HighchartsChartModule } from 'highcharts-angular';
     HighchartComponent,
     AgGridComponent,
     MatUiComponent,
-    ChartcomboComponent,
-    //HighchartsChartComponent
+    ChartcomboComponent,   
   ],
   imports: [
     CommonModule,
     NpmLibraryUpdateRoutingModule,
-    HighchartsChartModule
+    HighchartsChartModule, 
+    NgxChartsModule
   ]
 })
 export class NpmLibraryUpdateModule { }

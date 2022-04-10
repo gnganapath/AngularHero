@@ -47,7 +47,7 @@ highcharts = Highcharts;
         data: [
           7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 24.4, 19.3, 16.0, 18.4, 17.9,
         ],
-        type: 'spline',
+        type: 'pie',    // type:'bar', type:'pie' , type: 'spline',   
       },
     ],
   };
